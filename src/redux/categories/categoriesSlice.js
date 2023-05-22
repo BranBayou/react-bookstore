@@ -9,7 +9,7 @@ export const catagoriySlice = createSlice({
   initialState,
   reducers: {
     status: (state) => {
-      state.count = 'under construction';
+      state.status = 'under construction';
     },
   },
 });
