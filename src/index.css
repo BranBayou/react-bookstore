@@ -95,6 +95,12 @@ a {
   gap: 2rem;
 }
 
+.book-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 /* Add book */
 
 .add-book-con {
@@ -104,4 +110,20 @@ a {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
+}
+
+.form-content {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.form-content .input-type {
+  height: 3rem;
+  min-width: 10rem;
+  border: none;
+}
+
+.form-content .submit {
+  min-width: 6rem;
 }
