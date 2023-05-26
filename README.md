@@ -21,9 +21,7 @@
 - [📝 License](#license)
 # 📖 React Bookstore <a name="about-project"></a>
 
-## React+CSS Setup
-
-**React+CSS Setup** is an open source project aimed at building a safer, secure, fast, efficient and more realiable website.
+- An online Bookstore app built with React, Redux, CSS, and HTML. Users can browse books by category, add them to a cart, and proceed to checkout. The app features a search function, allowing users to search for books by title or author.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -33,20 +31,16 @@
   <summary>React</summary>
   <ul>
     <li>React</li>
-    <li>CSS</li>
+    <li>Redux</li>
   </ul>
 </details>
 
-<details>
-  <summary>Server</summary>
-
-</details>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Key Features
 
-- Mathematical operations.
-- Displays random Quotes fetched from API
+- Add book lists to the API.
+- Remove book from API.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
