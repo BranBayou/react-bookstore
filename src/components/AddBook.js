@@ -32,9 +32,9 @@ function AddBook() {
   return (
     <div className="add-book-con">
       <form className="form-content">
-        <input className="input-type" type="text" name="title" placeholder="Book title" onChange={handleChange} value={input.title} />
-        <input className="input-type" type="text" name="author" placeholder="Author" onChange={handleChange} value={input.author} />
-        <button className="submit" type="submit" onClick={handleSubmit}>Submit</button>
+        <input className="input-type title" type="text" name="title" placeholder="Book title" onChange={handleChange} value={input.title} />
+        <input className="input-type author" type="text" name="author" placeholder="Author" onChange={handleChange} value={input.author} />
+        <button className="submit-btn" type="submit" onClick={handleSubmit}>ADD BOOK</button>
       </form>
     </div>
   );

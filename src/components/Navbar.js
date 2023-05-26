@@ -1,3 +1,5 @@
+import { MdPerson } from 'react-icons/md';
+
 function Navbar() {
   return (
     <div className="nav-bar">
@@ -8,7 +10,9 @@ function Navbar() {
           <li><a href="/categories">Catagories</a></li>
         </nav>
         <div className="user">
-          <img src="./img/avatar.svg" alt="user" />
+          <li className="icon-container">
+            <a aria-label="icon" href="/categories"><MdPerson className="icon" /></a>
+          </li>
         </div>
       </div>
     </div>
