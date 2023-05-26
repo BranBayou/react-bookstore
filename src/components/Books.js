@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteBook, fetchBooks } from '../redux/books/booksSlice';
@@ -16,13 +17,11 @@ function Books() {
 
   const renderBooks = () => books.map((book) => {
     const {
-      // eslint-disable-next-line camelcase
       item_id,
       title,
       author,
     } = book;
     return (
-      // eslint-disable-next-line camelcase
       <section className="books" key={item_id}>
         <div className="book-con">
           <div className="book-info">
