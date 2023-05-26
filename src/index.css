@@ -43,6 +43,12 @@ code {
   color: #0290ff;
 }
 
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #0290ff;
+}
+
 .nav-con {
   max-width: 920px;
   margin: 0 auto;
@@ -76,6 +82,7 @@ a {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
+  padding-right: 6rem;
 }
 
 .book-info {
@@ -95,10 +102,115 @@ a {
   gap: 2rem;
 }
 
+.book-author {
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  color: #4386bf;
+}
+
 .book-btn {
   border: none;
   background: none;
   cursor: pointer;
+  color: #4386bf;
+}
+
+.comment,
+.remove {
+  border-right: 2px solid lightgray;
+  padding-right: 2rem;
+}
+
+.status-con {
+  display: flex;
+  align-items: center;
+  border-right: 2px solid lightgray;
+  padding-right: 3rem;
+}
+
+.book-title {
+  font-size: 1.375rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  color: #121212;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show-chapter {
+  font-size: 1rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  color: #121212;
+}
+
+.current-chapter {
+  font-size: 0.813rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #121212;
+}
+
+.percentage {
+  font-size: 2rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #121212;
+}
+
+.completed {
+  font-size: 0.875rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #121212;
+}
+
+.circular {
+  width: 3rem;
+  height: 3rem;
+}
+
+.chapter-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.update-btn {
+  color: #fff;
+  background-color: #0290ff;
+  width: 11.5rem;
+  height: 2.063rem;
+  margin: 1.5rem 0 0 0;
+  border-radius: 5px;
+  border: solid 1px var(--white);
 }
 
 /* Add book */
@@ -110,6 +222,7 @@ a {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .form-content {
@@ -118,12 +231,36 @@ a {
   gap: 1rem;
 }
 
-.form-content .input-type {
-  height: 3rem;
-  min-width: 10rem;
-  border: none;
-}
-
 .form-content .submit {
   min-width: 6rem;
+}
+
+.title {
+  min-width: 25.5rem;
+  height: 2.813rem;
+  border: solid 1px gray;
+  border-radius: 3px;
+  background-color: #fff;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.author {
+  min-width: 11.5rem;
+  height: 2.813rem;
+  border: solid 1px gray;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  color: #fff;
+  background-color: #0290ff;
+  width: 14.5rem;
+  height: 2.813rem;
+  border-radius: 5px;
+  border: solid 1px var(--white);
+  font-size: 1rem;
 }
