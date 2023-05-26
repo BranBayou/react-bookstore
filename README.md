@@ -23,7 +23,7 @@
 
 ## React+Redux Setup
 
-**React+Redux Bookstore** is an open source project aimed at adding and removing book lists from external API build with react redux toolkit.
+- An online Bookstore app built with React, Redux, CSS, and HTML. Users can browse books by category, add them to a cart, and proceed to checkout. The app features a search function, allowing users to search for books by title or author.
 
 ## 🛠 Built With <a name="built-with"></a>
 
