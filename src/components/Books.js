@@ -1,39 +1,56 @@
-import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteBook, fetchBooks } from '../redux/books/booksSlice';
 
 function Books() {
+  const { books, loading, error } = useSelector((state) => state.books);
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books.books);
 
-  return (
-    <section className="books">
-      {books.map((book) => (
-        <div className="book-con" key={book.item_id}>
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
+
+  const loadingState = () => <div>loading...</div>;
+
+  const errorState = () => <div>connection problem...</div>;
+
+  const renderBooks = () => books.map((book) => {
+    const {
+      // eslint-disable-next-line camelcase
+      item_id,
+      title,
+      author,
+    } = book;
+    return (
+      // eslint-disable-next-line camelcase
+      <section className="books" key={item_id}>
+        <div className="book-con">
           <div className="book-info">
             <div className="top">
-              <p>{book.category}</p>
-              <h3>{book.title}</h3>
-              <p>{book.author}</p>
+              <h3>{title}</h3>
+              <p>{author}</p>
             </div>
             <div className="bottom">
               <button className="book-btn" type="button">Comment</button>
-              <button className="book-btn" type="button" onClick={() => dispatch(removeBook(book.item_id))}>Remove</button>
+              <button className="book-btn" type="button" onClick={() => dispatch(deleteBook(item_id))}>Remove</button>
               <button className="book-btn" type="button">Edit</button>
             </div>
           </div>
         </div>
-      ))}
-    </section>
-  );
-}
+      </section>
+    );
+  });
 
-Books.propTypes = {
-  book: PropTypes.shape({
-    item_id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-  }).isRequired,
-};
+  const renderContent = () => {
+    if (loading) {
+      return loadingState();
+    }
+    if (error) {
+      return errorState();
+    }
+    return renderBooks();
+  };
+  return <div>{renderContent()}</div>;
+}
 
 export default Books;

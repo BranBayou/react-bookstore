@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/uMfxud1McryQAfRNygOp/books';
+const baseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/uJMha7Lpi2uDoTqENtNp';
 
 export const addNewBook = createAsyncThunk('books/addNewBook', async (book) => {
   try {
@@ -12,16 +12,20 @@ export const addNewBook = createAsyncThunk('books/addNewBook', async (book) => {
   return book;
 });
 
-export const getBooks = createAsyncThunk('books/getBooks', async () => {
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   try {
-    const response = await axios.get(baseUrl);
-    return response.data;
+    const resp = await axios.get(`${baseUrl}/books`);
+    const books = Object.entries(resp.data).map((item) => ({
+      ...item[1][0],
+      item_id: item[0],
+    }));
+    return books;
   } catch (error) {
-    return error;
+    throw new Error(error);
   }
 });
 
-export const deleteBook = createAsyncThunk('books/DELETE_BOOK', async (id) => {
+export const deleteBook = createAsyncThunk('books/deleteBook', async (id) => {
   try {
     await axios.delete(`${baseUrl}/books/${id}`);
   } catch (error) {
@@ -33,49 +37,39 @@ export const deleteBook = createAsyncThunk('books/DELETE_BOOK', async (id) => {
 const initialState = {
   books: [],
   loading: false,
-  error: null,
+  error: undefined,
 };
 
 export const bookSlice = createSlice({
   name: 'book',
   initialState,
-  reducers: {
-    addBook: (state, action) => {
-      state.books.push(action.payload);
-    },
-    removeBook: (state, action) => {
-      const newBooksState = { ...state };
-      newBooksState.books = state.books.filter((book) => book.item_id !== action.payload);
-      return newBooksState;
-    },
-  },
-  extraReducers: {
-    [getBooks.pending]: (state) => {
-      state.loading = true;
-      state.error = null;
-    },
-    [getBooks.fulfilled]: (state, action) => {
-      const books = Object.keys(action.payload).map(
-        (key) => (
-          {
-            item_id: key,
-            title: action.payload[key][0].title,
-            author: action.payload[key][0].author,
-          }),
-      );
-      return ({
-        ...state,
-        loading: false,
-        books,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(addNewBook.fulfilled, (state, action) => {
+        state.books.push(action.payload);
+      })
+      .addCase(deleteBook.fulfilled, (state, action) => {
+        const id = action.payload;
+        const index = state.books.findIndex((book) => book.item_id === id);
+        if (index !== -1) {
+          state.books.splice(index, 1);
+        }
+      })
+      .addCase(fetchBooks.pending, (state) => {
+        state.loading = true;
+        state.error = undefined;
+      })
+      .addCase(fetchBooks.fulfilled, (state, action) => {
+        state.books = action.payload;
+        state.loading = false;
+        state.error = undefined;
+      })
+      .addCase(fetchBooks.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
       });
-    },
-    [getBooks.rejected]: (state, action) => {
-      state.loading = false;
-      state.error = action.error.message;
-    },
   },
 });
-
-export const { addBook, removeBook } = bookSlice.actions;
 
 export default bookSlice.reducer;
