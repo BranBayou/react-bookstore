@@ -37,6 +37,11 @@ code {
 
 .nav-bar {
   background-color: #fff;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -64,13 +69,22 @@ code {
   gap: 2rem;
 }
 
+.linkb {
+  font-size: 1.2rem;
+}
+
 li {
   list-style-type: none;
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: hsl(0, 0%, 0%);
+}
+
+.nav-link .linkb:hover {
+  border-bottom: 3px solid #0290ff;
+  padding: 5px;
 }
 
 /* Books */
@@ -83,6 +97,7 @@ a {
   display: flex;
   justify-content: space-between;
   padding-right: 6rem;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .book-info {
@@ -121,6 +136,11 @@ a {
 .remove {
   border-right: 2px solid lightgray;
   padding-right: 2rem;
+}
+
+.status-plus-chapter {
+  display: flex;
+  justify-content: space-between;
 }
 
 .status-con {
@@ -201,6 +221,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 5rem;
 }
 
 .update-btn {
@@ -223,6 +244,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .form-content {
@@ -238,8 +260,8 @@ a {
 .title {
   min-width: 25.5rem;
   height: 2.813rem;
-  border: solid 1px gray;
-  border-radius: 3px;
+  border: solid 1px lightgray;
+  border-radius: 0.5rem;
   background-color: #fff;
   padding: 1rem;
   font-size: 1rem;
@@ -248,8 +270,8 @@ a {
 .author {
   min-width: 11.5rem;
   height: 2.813rem;
-  border: solid 1px gray;
-  border-radius: 5px;
+  border: solid 1px lightgray;
+  border-radius: 0.5rem;
   background-color: #fff;
   padding: 1rem;
   font-size: 1rem;
@@ -260,7 +282,146 @@ a {
   background-color: #0290ff;
   width: 14.5rem;
   height: 2.813rem;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   border: solid 1px var(--white);
   font-size: 1rem;
+}
+
+/* -------- Responsive Hambergur Menu ---------- */
+
+.nav-bar .mobile-navigation {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-navigation {
+    display: flex;
+    width: 100%;
+  }
+
+  .nav-bar .mobile-navigation {
+    display: flex;
+  }
+
+  .nav-bar .navigation {
+    display: none;
+  }
+
+  .hamburger {
+    color: #0290ff;
+    height: 25px;
+    width: 25px;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+
+  .hamburger:hover {
+    height: 28px;
+    width: 28px;
+  }
+
+  .closeIcon {
+    color: #0290ff;
+    height: 25px;
+    width: 25px;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+
+  .closeIcon:hover {
+    height: 28px;
+    width: 28px;
+  }
+
+  .mobile-navigation .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    height: 30vh;
+    padding: 1.5rem;
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    background-color: #ececec;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-navigation .logo {
+    margin-right: 1rem;
+  }
+
+  .mobile-navigation .mob-li {
+    color: #000;
+    font-size: 1.2rem;
+  }
+
+  .mobile-navigation .mob-li:hover {
+    color: #0290ff;
+    font-size: 1.3rem;
+  }
+
+  /* ----- Book section ----- */
+
+  .book-con {
+    max-width: 100%;
+    padding: 1rem;
+    background-color: #fff;
+    display: flex;
+  }
+
+  .bottom {
+    gap: 1rem;
+  }
+
+  .comment,
+  .remove {
+    padding-right: 1rem;
+  }
+
+  .status-plus-chapter {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .status-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: none;
+    gap: 1rem;
+    padding-right: 0;
+  }
+
+  .update-btn {
+    color: #fff;
+    background-color: #0290ff;
+    width: auto;
+    height: 2.063rem;
+    margin: 0.5rem 0 0 -4rem;
+  }
+
+  .current-chapter {
+    font-size: 0.7rem;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #121212;
+  }
+
+  /* ---- Add book ---- */
+
+  .add-book-con .form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title,
+  .author {
+    min-width: 20rem;
+  }
 }
