@@ -37,22 +37,24 @@ function Books() {
               <button className="book-btn" type="button">Edit</button>
             </div>
           </div>
-          <div className="status-con">
-            <div className="progress">
-              <CircularProgressbar className="circular" value={85} />
-              <div className="progress-info">
-                <span className="percentage">
-                  {Math.floor(Math.random() * 100)}
-                  %
-                </span>
-                <span className="completed">Completed</span>
+          <div className="status-plus-chapter">
+            <div className="status-con">
+              <div className="progress">
+                <CircularProgressbar className="circular" value={85} />
+                <div className="progress-info">
+                  <span className="percentage">
+                    {Math.floor(Math.random() * 100)}
+                    %
+                  </span>
+                  <span className="completed">Completed</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="chapter-con">
-            <p className="current-chapter">CURRENT CHAPTER</p>
-            <h4 className="show-chapter">Chapter 17</h4>
-            <button type="button" className="update-btn">UPDATE PROGRESS</button>
+            <div className="chapter-con">
+              <p className="current-chapter">CURRENT CHAPTER</p>
+              <h4 className="show-chapter">Chapter 17</h4>
+              <button type="button" className="update-btn">UPDATE PROGRESS</button>
+            </div>
           </div>
         </div>
       </section>
