@@ -243,7 +243,8 @@ a {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
-  align-items: center;box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .form-content {
@@ -286,13 +287,18 @@ a {
   font-size: 1rem;
 }
 
-/*-------- Responsive Hambergur Menu ----------*/
+/* -------- Responsive Hambergur Menu ---------- */
 
 .nav-bar .mobile-navigation {
   display: none;
 }
 
 @media screen and (max-width: 768px) {
+  .mobile-navigation {
+    display: flex;
+    width: 100%;
+  }
+
   .nav-bar .mobile-navigation {
     display: flex;
   }
@@ -327,11 +333,6 @@ a {
     width: 28px;
   }
 
-  .mobile-navigation {
-    display: flex;
-    width: 100%;
-  }
-
   .mobile-navigation .nav-link {
     display: flex;
     flex-direction: column;
@@ -350,17 +351,17 @@ a {
     margin-right: 1rem;
   }
 
-  .mobile-navigation  .mob-li {
+  .mobile-navigation .mob-li {
     color: #000;
     font-size: 1.2rem;
   }
 
- .mobile-navigation  .mob-li:hover {
+  .mobile-navigation .mob-li:hover {
     color: #0290ff;
     font-size: 1.3rem;
   }
 
-  /*----- Book section -----*/
+  /* ----- Book section ----- */
 
   .book-con {
     max-width: 100%;
@@ -375,8 +376,8 @@ a {
 
   .comment,
   .remove {
-  padding-right: 1rem;
-}
+    padding-right: 1rem;
+  }
 
   .status-plus-chapter {
     display: flex;
@@ -400,7 +401,7 @@ a {
     height: 2.063rem;
     margin: 0.5rem 0 0 -4rem;
   }
-  
+
   .current-chapter {
     font-size: 0.7rem;
     font-weight: 300;
@@ -410,9 +411,8 @@ a {
     letter-spacing: normal;
     color: #121212;
   }
-  
 
-  /*---- Add book ----*/
+  /* ---- Add book ---- */
 
   .add-book-con .form-content {
     display: flex;
@@ -424,5 +424,4 @@ a {
   .author {
     min-width: 20rem;
   }
-
 }
