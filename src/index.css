@@ -82,6 +82,11 @@ a {
   color: hsl(0, 0%, 0%);
 }
 
+.nav-link .linkb:hover {
+  border-bottom: 3px solid #0290ff;
+  padding: 5px;
+}
+
 /* Books */
 
 .book-con {
